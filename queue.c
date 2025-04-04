@@ -63,7 +63,7 @@ int number_of_moves(struct game_state start){
             struct list_node *node = visited.data.head;
             while(node != NULL){
                 struct game_state visited_state = deserialize(node->value);
-                if(equals(moves[i], visited_state)){
+                if(is_goal(moves[i], visited_state)){
                     already_visited = 1;
                     break;
                 }
