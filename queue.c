@@ -63,7 +63,7 @@ int number_of_moves(struct game_state start){
             struct list_node *node = visited.data.head;
             size_t current_encoded = serialize(moves[i]);
 
-            while(node 1+ NULL){
+            while(node != NULL){
                 if(node->value == current_encoded){
                     already_visited = 1;
                     break;
