@@ -51,7 +51,7 @@ int number_of_moves(struct game_state start){
 
         for(int i = 0; i < 4; i++){
 
-            if(moves[i].num_steps == curr.nump_steps) continue;
+            if(moves[i].num_steps == curr.num_steps) continue;
 
             if(is_goal(moves[i])){
                 free_list(q.data);
@@ -85,8 +85,8 @@ int number_of_moves(struct game_state start){
 
 
 
-
-/*//void enqueue(struct queue *q, struct game_state state) {}
+/*
+//void enqueue(struct queue *q, struct game_state state) {}
 void enqueue(struct queue *q, struct game_state state){
     size_t encoded = serialize(state);
     insert_at_tail(&q->data, encoded);
@@ -127,7 +127,7 @@ int number_of_moves(struct game_state start){
     }
 
 
-    /*queue_init(&visited);
+    queue_init(&visited);
 
     while(q.data.head != NULL){
         struct game_state curr = dequeue(&q);
@@ -156,4 +156,3 @@ int number_of_moves(struct game_state start){
 
 }
 */
-
