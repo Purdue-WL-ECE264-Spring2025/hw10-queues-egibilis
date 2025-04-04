@@ -61,7 +61,24 @@ int number_of_moves(struct game_state start){
 
             int already_visited = 0;
             struct list_node *node = visited.data.head;
-            while(node != NULL){
+            size_t current_encoded = serialize(moves[i]);
+
+            while(node 1+ NULL){
+                if(node->value == current_encoded){
+                    already_visited = 1;
+                    break;
+                }
+                node = node->next;
+            }
+            if(!already_visited){
+                enqueue(&q,moves[i]);
+                enqueue(&visited,moves[i]);
+            }
+        }
+    }
+            
+
+            /*while(node != NULL){
                 struct game_state visited_state = deserialize(node->value);
 
                 int same = 1;
@@ -88,7 +105,7 @@ int number_of_moves(struct game_state start){
                 
         }
 
-    }
+    }*/
         free_list(q.data);
         free_list(visited.data);
         return -1;
