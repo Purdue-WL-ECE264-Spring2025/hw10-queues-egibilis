@@ -63,7 +63,37 @@ int number_of_moves(struct game_state start){
             struct list_node *node = visited.data.head;
             while(node != NULL){
                 struct game_state visited_state = deserialize(node->value);
-                if(is_goal(moves[i], visited_state)){
+
+                int same = 1;
+                for(int r = 0; r < 4 && same; r++){
+                    for(int c = 0; c < 4 && same; c++){
+                        if(moves[i].tiles[r][c] != visited_state.tiles[r][c]){
+                            same = 0;
+                        }
+                    }
+                }
+
+
+                if(same){
+                    already_visited = 1;
+                    break;
+                }
+                node = node-> next;
+            }
+
+            if(!already_visited){
+                enqueue(&q, moves[i]);
+                enqueue(&visited,moves[i]);
+            }
+                
+        }
+
+    }
+        free_list(q.data);
+        free_list(visited.data);
+        return -1;
+}
+                /*if(is_goal(moves[i], visited_state)){
                     already_visited = 1;
                     break;
                 }
