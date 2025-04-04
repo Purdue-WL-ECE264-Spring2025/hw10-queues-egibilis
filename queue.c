@@ -1,4 +1,3 @@
-#include "queue.h"
 #include "tile_game.h"
 
 
@@ -115,7 +114,7 @@ int number_of_moves(struct game_state start){
 
 
 
-/*
+
 //void enqueue(struct queue *q, struct game_state state) {}
 void enqueue(struct queue *q, struct game_state state){
     size_t encoded = serialize(state);
